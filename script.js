@@ -1,4 +1,4 @@
-let money = prompt("Ваш бюджет на месяц?", "");
+let money = +prompt("Ваш бюджет на месяц?", "");
 let time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
 let appData = {
@@ -10,15 +10,67 @@ let appData = {
     savings: false,
 }
 
-let firstQ1 = prompt("Введите обязательную статью расходов в этом месяце", ""); // first point of expenses
-let secondQ1 = prompt("Во сколько обойдется?", ""); // value of first point of expenses
-let firstQ2 = prompt("Введите обязательную статью расходов в этом месяце", ""); // second point of expenses
-let secondQ2 = prompt("Во сколько обойдется?", ""); //value of second point of expenses
+/*let i = 0;
+while(i < 2) {
+    let firstQ = prompt("Введите обязательную статью расходов в этом месяце", ""), // first point of expenses
+    secondQ = prompt("Во сколько обойдется?", ""); // value of first point of expenses
 
-appData.expenses[firstQ1] = secondQ1;
-appData.expenses[firstQ2] = secondQ2;
+    if ((typeof(firstQ)) != null && (typeof(secondQ)) != null && firstQ != '' && secondQ != '' 
+    && firstQ.length <= 50) {
+        console.log("Done");
+        appData.expenses[firstQ] = secondQ;
+    } else {
+        alert("Вы ввели неверные данные. Повторите, пожалуйста, ввод: ")
+        i--;
+    }
+    i++;
+}; */
 
-alert(appData.budget/30);
+/*let i = 0;
+while(i < 2) 
+do {
+    let firstQ = prompt("Введите обязательную статью расходов в этом месяце", ""), // first point of expenses
+    secondQ = prompt("Во сколько обойдется?", ""); // value of first point of expenses
+
+    if ((typeof(firstQ)) != null && (typeof(secondQ)) != null && firstQ != '' && secondQ != '' 
+    && firstQ.length <= 50) {
+        console.log("Done");
+        appData.expenses[firstQ] = secondQ;
+    } else {
+        alert("Вы ввели неверные данные. Повторите, пожалуйста, ввод: ")
+        i--;
+    };
+    i++;
+} while (i < 2);  */
+
+for (let i = 0; i<2; i++) {
+    let firstQ = prompt("Введите обязательную статью расходов в этом месяце", ""), // first point of expenses
+    secondQ = prompt("Во сколько обойдется?", ""); // value of first point of expenses
+
+    if ((typeof(firstQ)) != null && (typeof(secondQ)) != null && firstQ != '' && secondQ != '' 
+    && firstQ.length <= 50) {
+        console.log("Done");
+        appData.expenses[firstQ] = secondQ;
+    } else {
+        alert("Вы ввели неверные данные. Повторите, пожалуйста, ввод: ")
+        i--;
+    }
+};
+
+appData.moneyPerDay = (appData.budget/30);
+alert("Ежедневный бюджет: " + appData.moneyPerDay);
+
+if (appData.moneyPerDay <= 100) {
+    console.log("Минимальный уровень достатка");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay <= 2000) {
+    console.log("Средний уровень достатка");
+} else if (appData.moneyPerDay > 2000) {
+    console.log("Высокий уровень достатка");
+} else {
+    console.log("Произошла ошибка");
+}
+
+console.log(appData);
 
 
 
